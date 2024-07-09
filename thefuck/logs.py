@@ -17,13 +17,26 @@ def color(color_):
         return color_
 
 
-def warn(title):
-    sys.stderr.write(u'{warn}[WARN] {title}{reset}\n'.format(
-        warn=color(colorama.Back.RED + colorama.Fore.WHITE
-                   + colorama.Style.BRIGHT),
-        reset=color(colorama.Style.RESET_ALL),
-        title=title))
+branch_coverage_warn = {
+    'branch_1':False,
+    'branch_2':False
+}
 
+def print_warn_coverage():
+    print('Coverage Warn:')
+    print(branch_coverage_warn)
+def warn(title = None):
+    if title:
+        sys.stderr.write(u'{warn}[WARN] {title}{reset}\n'.format(
+            warn=color(colorama.Back.RED + colorama.Fore.WHITE
+                    + colorama.Style.BRIGHT),
+            reset=color(colorama.Style.RESET_ALL),
+            title=title))
+        branch_coverage_warn['branch_1'] = True
+    else:
+        sys.stderr.write('No title[WARN]')
+        branch_coverage_warn['branch_2'] = True
+ 
 
 def exception(title, exc_info):
     sys.stderr.write(
@@ -39,12 +52,26 @@ def exception(title, exc_info):
 def rule_failed(rule, exc_info):
     exception(u'Rule {}'.format(rule.name), exc_info)
 
+branch_coverage_failed = {
+    'branch_1':False,
+    'branch_2':False
+}
 
-def failed(msg):
-    sys.stderr.write(u'{red}{msg}{reset}\n'.format(
-        msg=msg,
-        red=color(colorama.Fore.RED),
-        reset=color(colorama.Style.RESET_ALL)))
+def print_failed_coverage():
+    print('Coverage Failed')
+    print(branch_coverage_failed)
+
+def failed(msg = None):
+    if msg:
+        sys.stderr.write(u'{red}{msg}{reset}\n'.format(
+            msg=msg,
+            red=color(colorama.Fore.RED),
+            reset=color(colorama.Style.RESET_ALL)))
+        branch_coverage_failed['branch_1'] = True
+    else:
+        sys.stderr.write('No message [WARN]')
+        branch_coverage_failed['branch_2'] = True
+
 
 
 def show_corrected_command(corrected_command):

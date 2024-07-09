@@ -1,6 +1,6 @@
 import pytest
 from mock import Mock
-from thefuck.entrypoints.fix_command import _get_raw_command
+from thefuck.entrypoints.fix_command import _get_raw_command, fix_command
 
 
 class TestGetRawCommand(object):
@@ -24,3 +24,4 @@ class TestGetRawCommand(object):
         known_args = Mock(force_command=None,
                           command=None)
         assert _get_raw_command(known_args) == [result]
+
