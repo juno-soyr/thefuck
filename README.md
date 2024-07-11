@@ -28,20 +28,27 @@ Which generates a nice report for us to be able to read the information in a mor
 
 ### Individual tests
 
-<The following is supposed to be repeated for each function (2 in total)>
+#### Failed function
 
-<Function 1>
+![Link to github](https://github.com/juno-soyr/thefuck/commit/22cda687627a21b9280f5e2ce6ae2e0d082f9a32)
 
-<Show a patch (diff) or a link to a commit made in your forked repository that shows the new/enhanced tests for function 1>
+![Previous coverage](img/test_failed_coverage_prev.png)
+![Final coverage](img/test_failed_coverage_final.png)
 
-<Provide a screenshot of the old coverage results for such function>
+There is an improvement of a hundred percent, since the function was not covered previously. With the print statements tested and the value passed to the function being the only two possible results, I made 2 test functions for the 2 possible outcomes.
 
-<Provide a screenshot of the new coverage results for such function>
+#### Warn function
 
-<State the coverage improvement with a number and elaborate on why the coverage is improved>
+![Link to github](https://github.com/juno-soyr/thefuck/commit/2b8f4890c94ac348c51054913ba2e4417316fc5a)
+
+![Previous coverage](img/test_warn_coverage_prev.png)
+![Final coverage](img/test_warn_coverage_final.png)
+
+As the previous function, the improvement is a hundred percent, since the function was not covered previously. The inner workings of the two functions are similar, so It was the same logic, but with a different result.
+
 
 ### Overall
 
-<Provide a screenshot of the old coverage results by running an existing tool (the same as you already showed at the beginning of the report)>
+![Coverage before test addition](img/screenshot_full_coverage_prev.png)
 
-<Provide a screenshot of the new coverage results by running the existing tool using all test modifications>
+![Coverage after test addition](img/full_coverage_final.png)
